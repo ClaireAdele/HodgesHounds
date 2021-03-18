@@ -1,0 +1,16 @@
+#aboutImg {
+    max-width : 25%;
+    max-height: auto;
+    margin: 5% 10% 0% 10%;
+}
+
+#homepage-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20%;
+}
+
+#about {
+    margin: 10% 10% 10% 10%;
+    text-align: justify;
+}
