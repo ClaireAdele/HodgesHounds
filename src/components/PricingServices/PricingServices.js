@@ -18,6 +18,14 @@ export default class PricingServices extends Component {
         })
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if(prevState.displayedServices !== this.state.displayedServices) {
+            const dbRef = firestore.collection("services").doc("services-pricing");
+            dbRef.update({services: this.state.displayedServices});
+            console.log(this.state.displayedServices)
+        }
+    }
+
     handleInputChangeService = (event) => {
         const {value} = event.target;
         this.setState({service : value});
@@ -31,15 +39,11 @@ export default class PricingServices extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        //I am not updated the state properly here for some reason
         this.setState((currentState) => { return { displayedServices : [...currentState.displayedServices, { service : this.state.service, price: this.state.price}]}})
-        const pricing_services = this.state.displayedServices;
-        console.log(pricing_services)
-        const dbRef = firestore.collection("services").doc("services-pricing");
-        dbRef.update({services : pricing_services})
     }
 
     render() {
+        console.log(this.state.displayedServices)
         return (
             this.state.displayedServices.length > 0 ?
             <div>
