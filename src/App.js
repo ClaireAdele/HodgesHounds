@@ -6,6 +6,7 @@ import PricingServices from "./components/PricingServices/PricingServices";
 import Banner from "./Banner";
 import NavBar from "./NavBar";
 import BottomInfo from "./BottomInfo";
+import LoginOwner from "./components/Login/LoginOwner";
 
 function App() {
   return (
@@ -15,11 +16,12 @@ function App() {
       <NavBar />
       </header>
       <Router>
-        <HomePage path="/"/>
-        <Contact path="/contact"/>
-        <PricingServices path="/pricing_services"/>
+        <HomePage path="/" />
+        <LoginOwner path="/login" />
+        <Contact path="/contact" />
+        <PricingServices path="/pricing_services" />
       </Router>
-      {/* <BottomInfo /> */}
+      <BottomInfo />
     </div>
   );
 }
