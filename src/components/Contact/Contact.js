@@ -1,5 +1,5 @@
 import React from 'react';
-import MapContainer from "./MapContainer";
+// import MapContainer from "./MapContainer";
 import "./Contact.css"
 
 export default function Contact() {

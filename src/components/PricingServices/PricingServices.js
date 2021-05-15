@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { firestore } from "../../Util-Functions/config"; 
+import DeleteService from './DeleteService';
+import { firestore, auth } from "../../Util-Functions/config"; 
+import ImgSrc from "../../Images/loader-paws.gif";
 
 export default class PricingServices extends Component {
     state = {
         service : "",
         price: "",
-        displayedServices : []
+        displayedServices : [],
+        mark : false
     }
 
     componentDidMount() {
@@ -15,6 +18,9 @@ export default class PricingServices extends Component {
             return data;
         }).then((data) => {
             this.setState({displayedServices : data.services});
+            if(auth.currentUser) {
+                this.setState({mark : true})
+            }
         })
     }
 
@@ -22,7 +28,6 @@ export default class PricingServices extends Component {
         if(prevState.displayedServices !== this.state.displayedServices) {
             const dbRef = firestore.collection("services").doc("services-pricing");
             dbRef.update({services: this.state.displayedServices});
-            console.log(this.state.displayedServices)
         }
     }
 
@@ -43,13 +48,13 @@ export default class PricingServices extends Component {
     }
 
     render() {
-        console.log(this.state.displayedServices)
+        console.log(auth.currentUser)
         return (
-            this.state.displayedServices.length > 0 ?
+            this.state.displayedServices.length > 0 && this.state.mark ?
             <div>
             <text>Our Services</text>
             {this.state.displayedServices.map((service) => {
-                return <div><text>{service.service}</text> <text>{service.price}</text></div>
+                return <div><text>{service.service}</text> <text>{service.price}</text> <DeleteService props={{service, arrayServices : this.state.displayedServices}}></DeleteService></div> 
             })}
             <form onSubmit={this.handleSubmit}>
             <input type="text" placeholder="type in new service" onChange={this.handleInputChangeService} name="service"></input>
@@ -60,11 +65,9 @@ export default class PricingServices extends Component {
             :
             <div>
             <text>Our Services</text>
-            <form onSubmit={this.handleSubmit}>
-            <input type="text" placeholder="type in new service" onChange={this.handleInputChangeService} name="service"></input>
-            <input type="number" placeholder="set price" onChange={this.handleInputChangePrice} name="price"></input>
-            <button>Add Service</button>
-            </form>
+            {this.state.displayedServices.map((service) => {
+                return <div><text>{service.service}</text> <text>{service.price}</text></div>
+            })}            
         </div>
         )
     }  
