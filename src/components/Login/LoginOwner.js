@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { auth } from '../../Util-Functions/config';
+import { auth, setPersistence } from '../../Util-Functions/config';
 import { signIn } from '../../Util-Functions/firestore-functions'
 
 export default class LoginOwner extends Component {
@@ -10,9 +10,11 @@ export default class LoginOwner extends Component {
     }
 
     componentDidMount() {
-        if (auth.currentUser) {
-            this.setState({mark : true})
-        }
+        auth.onAuthStateChanged((user) => {
+            if(user) {
+               this.setState({mark : true})
+            }
+        })
     }
 
     handleChangeEmail = (event) => {
@@ -28,7 +30,9 @@ export default class LoginOwner extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         signIn(this.state.email, this.state.password).then(() => (this.setState({mark : true})))
+        setPersistence.then(() => {return auth.signInWithEmailAndPassword(this.state.email, this.state.password)});
     }
+    
 
     handleLogout = (event) => {
         event.preventDefault();
@@ -36,7 +40,6 @@ export default class LoginOwner extends Component {
     }
 
     render() {
-        console.log(auth.currentUser)
         return (
             this.state.mark ?
             <div>
@@ -54,4 +57,3 @@ export default class LoginOwner extends Component {
     }
 }
 
-export const AuthContext = React.createContext();

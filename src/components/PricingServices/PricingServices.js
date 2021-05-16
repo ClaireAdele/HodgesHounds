@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DeleteService from './DeleteService';
 import { firestore, auth } from "../../Util-Functions/config"; 
 import ImgSrc from "../../Images/loader-paws.gif";
+import "./PricingServices.css"
 
 export default class PricingServices extends Component {
     state = {
@@ -48,11 +49,10 @@ export default class PricingServices extends Component {
     }
 
     render() {
-        console.log(auth.currentUser)
         return (
             this.state.displayedServices.length > 0 && this.state.mark ?
-            <div>
-            <text>Our Services</text>
+            <div id="pricingServices-container">
+            <h1>Our Services</h1>
             {this.state.displayedServices.map((service) => {
                 return <div><text>{service.service}</text> <text>{service.price}</text> <DeleteService props={{service, arrayServices : this.state.displayedServices}}></DeleteService></div> 
             })}
@@ -61,10 +61,24 @@ export default class PricingServices extends Component {
             <input type="number" placeholder="set price" onChange={this.handleInputChangePrice} name="price"></input>
             <button>Add Service</button>
             </form>
+            <div id="textServices">
+                <div class="textExplanation">
+                <h3>Dog Grooming Services</h3>
+                <text>
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                </text>
+                </div>
+                <div class="textExplanation">
+                <h3>Dog Walking Services</h3>
+                <text>
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                </text>
+                </div>
+            </div>
             </div>
             :
-            <div>
-            <text>Our Services</text>
+            <div id="pricingServices-container">
+            <h1>Our Services</h1>
             {this.state.displayedServices.map((service) => {
                 return <div><text>{service.service}</text> <text>{service.price}</text></div>
             })}            

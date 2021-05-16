@@ -14,21 +14,33 @@ a:link {
 }
 
 #banner {
-    border: 2px solid red; 
+    background-color: black;
+    color: white;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 #navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    border: 2px solid red; 
+    background-color: black;
+    padding: 5% 0% 3% 0%;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: black;
+    background-color: white;
 }
 
 #bottom-container {
-    background-color: grey;
+    background-color: #333333;
+    color: white;
     position: absolute;
 }
 
@@ -45,7 +57,7 @@ a:link {
     margin: 0px auto;
     right: 0px;
     left: 0px;
-    background-color: grey;
+    background-color: #333333;
 }
 
 .bottom-info {
@@ -53,4 +65,9 @@ a:link {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+}
+
+#iPet {
+    margin-top: 4%;
+    max-width: 50%;
 }

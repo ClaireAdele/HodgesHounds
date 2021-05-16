@@ -1,0 +1,15 @@
+#pricingServices-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20%;
+}
+
+#textServices {
+    display: flex;
+    flex-direction: row;
+    text-align: justify;
+}
+
+.textExplanation {
+    margin: 5% 10% 10% 10%;
+}
