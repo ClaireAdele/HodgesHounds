@@ -1,20 +1,32 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper } from 'google-maps-react';
+
 import "./Contact";
+import { googleMapsKey } from "../../Util-Functions/config"
 
 const mapStyles = {
-  width: '75%',
-  height: '25%',
+  width: '100%',
+  height: '100%',
   border: "solid red 2px",
+  style:"margin-bottom:0;",
+  margin:"0 0 0 0"
 };
 
-export class MapContainer extends Component {
+const containerStyle = {
+  height: "250px",
+  width: "250px",
+  border: "solid red 2px",
+  margin: "10% 10% 10% 10%"
+}
+
+class MapContainer extends Component {
   render() {
     return (
       <Map
         google={this.props.google}
         zoom={14}
         style={mapStyles}
+        containerStyle={containerStyle}
         initialCenter={
           {
             lat: 53.3695745473653,
@@ -26,6 +38,6 @@ export class MapContainer extends Component {
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyBfSf1NfHORZXrHySVD8khuiE7c94FqG2E'
+export const GoogleMaps = GoogleApiWrapper({
+  apiKey: googleMapsKey
 })(MapContainer);

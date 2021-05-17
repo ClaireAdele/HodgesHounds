@@ -28,7 +28,7 @@ export default function BottomInfo() {
             <h3>Booking:</h3>
             <text>07000000000</text>
             <text>mark@owner.com</text>
-            <img src={ipetNetwork} id="iPet"></img>
+            <a href="https://www.ipetnetwork.co.uk/quality-assurance/policies-and-procedures/"><img src={ipetNetwork} id="iPet"></img></a>
             </div>
 
         </div>

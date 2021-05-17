@@ -81,7 +81,21 @@ export default class PricingServices extends Component {
             <h1>Our Services</h1>
             {this.state.displayedServices.map((service) => {
                 return <div><text>{service.service}</text> <text>{service.price}</text></div>
-            })}            
+            })}
+            <div id="textServices">
+                <div class="textExplanation">
+                <h3>Dog Grooming Services</h3>
+                <text>
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                </text>
+                </div>
+                <div class="textExplanation">
+                <h3>Dog Walking Services</h3>
+                <text>
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                </text>
+                </div>
+            </div>            
         </div>
         )
     }  
