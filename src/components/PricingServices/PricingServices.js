@@ -50,17 +50,19 @@ export default class PricingServices extends Component {
 
     render() {
         return (
-            this.state.displayedServices.length > 0 && this.state.mark ?
+            this.state.mark ?
             <div id="pricingServices-container">
+            <div class="services-list">
             <h1>Our Services</h1>
             {this.state.displayedServices.map((service) => {
-                return <div><text>{service.service}</text> <text>{service.price}</text> <DeleteService props={{service, arrayServices : this.state.displayedServices}}></DeleteService></div> 
+                return <div><text>{service.service}</text> <text>£{service.price}</text> <DeleteService props={{service, arrayServices : this.state.displayedServices}}></DeleteService></div> 
             })}
             <form onSubmit={this.handleSubmit}>
             <input type="text" placeholder="type in new service" onChange={this.handleInputChangeService} name="service"></input>
-            <input type="number" placeholder="set price" onChange={this.handleInputChangePrice} name="price"></input>
+            <input type="integer" placeholder="set price" onChange={this.handleInputChangePrice} name="price"></input>
             <button>Add Service</button>
             </form>
+            </div>
             <div id="textServices">
                 <div class="textExplanation">
                 <h3>Dog Grooming Services</h3>
@@ -78,10 +80,12 @@ export default class PricingServices extends Component {
             </div>
             :
             <div id="pricingServices-container">
+            <div class="services-list">
             <h1>Our Services</h1>
             {this.state.displayedServices.map((service) => {
-                return <div><text>{service.service}</text> <text>{service.price}</text></div>
+                return <div><text>{service.service}</text> <text>£{service.price}</text></div>
             })}
+            </div>
             <div id="textServices">
                 <div class="textExplanation">
                 <h3>Dog Grooming Services</h3>

@@ -16,6 +16,7 @@ const containerStyle = {
   height: "250px",
   width: "250px",
   border: "solid red 2px",
+  position: "relative",
   margin: "10% 10% 10% 10%"
 }
 

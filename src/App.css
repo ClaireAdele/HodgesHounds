@@ -9,6 +9,27 @@ a:link {
     top: 0;
 }
 
+h1 {
+    font-family: "Roboto Slab" 
+}
+
+h2 {
+    font-family: "Roboto Slab" 
+}
+
+h3 {
+    font-family: "Roboto Slab" 
+}
+
+text {
+    font-family: "Roboto Slab" 
+}
+
+p {
+    font-family: "Roboto Slab" 
+}
+
+
 #banner-img {
     max-width : 50%;
 }
@@ -27,6 +48,8 @@ a:link {
     justify-content: space-around;
     background-color: black;
     padding: 2% 0% 3% 0%;
+    font-size: larger;
+    font-family: "Girassol"
 }
 
 a {
@@ -34,8 +57,7 @@ a {
 }
 
 a:hover {
-    color: black;
-    background-color: white;
+    font-size: larger;
 }
 
 #bottom-container {
@@ -71,3 +93,4 @@ a:hover {
     margin-top: 4%;
     max-width: 50%;
 }
+

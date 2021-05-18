@@ -13,3 +13,9 @@
 .textExplanation {
     margin: 5% 10% 10% 10%;
 }
+
+.services-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

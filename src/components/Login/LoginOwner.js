@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { auth, setPersistence } from '../../Util-Functions/config';
-import { signIn } from '../../Util-Functions/firestore-functions'
+import { signIn } from '../../Util-Functions/firestore-functions';
+import "./Login.css";
 
 export default class LoginOwner extends Component {
     state = {
@@ -40,13 +41,14 @@ export default class LoginOwner extends Component {
     }
 
     render() {
+        console.log(this.state.mark)
         return (
             this.state.mark ?
-            <div>
+            <div id="login-container">
                 <button onClick={this.handleLogout}>Sign-Out</button>
             </div>
             :
-            <div>
+            <div id="login-container">
                 <form>
                 <input type="text" placeholder="email" onChange={this.handleChangeEmail}/>
                 <input type="text" placeholder="password" onChange={this.handleChangePassword}/>

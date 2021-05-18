@@ -5,9 +5,16 @@ import "./Contact.css"
 
 export default function Contact() {
     return (
+        <div>
+        <h1>Contact and Booking</h1>
         <div id="contact-container">
             <GoogleMaps /> 
-            <text> this is a placeholder text, all else will come soon</text>
+            <div>
+            <p>We accept booking over the phone or by e-mail.</p>
+            <p>07123456789</p>
+            <p>mark@owner.com</p>
+            </div>
+        </div>
         </div>
     )
 }
