@@ -48,6 +48,12 @@ export default class PricingServices extends Component {
         this.setState((currentState) => { return { displayedServices : [...currentState.displayedServices, { service : this.state.service, price: this.state.price}]}})
     }
 
+    deleteService = (arrayServices) => {
+        const dbRef = firestore.collection("services").doc("services-pricing");
+        dbRef.update({services : arrayServices});
+        this.setState({displayedServices : arrayServices});
+    }
+
     render() {
         return (
             this.state.mark ?
@@ -55,7 +61,7 @@ export default class PricingServices extends Component {
             <div class="services-list">
             <h1>Our Services</h1>
             {this.state.displayedServices.map((service) => {
-                return <div><text>{service.service}</text> <text>£{service.price}</text> <DeleteService props={{service, arrayServices : this.state.displayedServices}}></DeleteService></div> 
+                return <table class="prices-table"><tr><td>{service.service}</td><td>£{service.price}</td><td><DeleteService service={service} arrayServices={this.state.displayedServices} deleteService={this.deleteService}></DeleteService></td></tr></table>
             })}
             <form onSubmit={this.handleSubmit}>
             <input type="text" placeholder="type in new service" onChange={this.handleInputChangeService} name="service"></input>
@@ -83,7 +89,7 @@ export default class PricingServices extends Component {
             <div class="services-list">
             <h1>Our Services</h1>
             {this.state.displayedServices.map((service) => {
-                return <div><text>{service.service}</text> <text>£{service.price}</text></div>
+                return <table class="prices-table"><tr><td>{service.service}</td><td>£{service.price}</td></tr></table>
             })}
             </div>
             <div id="textServices">

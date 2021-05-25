@@ -22,11 +22,11 @@ h3 {
 }
 
 text {
-    font-family: "Roboto Slab" 
+    font-family: "Roboto Slab";
 }
 
 p {
-    font-family: "Roboto Slab" 
+    font-family: "Roboto Slab";
 }
 
 
@@ -72,7 +72,7 @@ a:hover {
     font-size: medium;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: flex-end;
     bottom: 0; 
     left: 0;
     width: 100%;
@@ -83,14 +83,25 @@ a:hover {
 }
 
 .bottom-info {
-    margin: 2% 5% 2% 5%;
+    margin: 2% 3% 2% 1%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    padding: 0 0 0 0;
 }
 
 #iPet {
     margin-top: 4%;
     max-width: 50%;
+    margin-left: 45%;
 }
 
+#opening-times {
+    table-layout: fixed;
+    width: 35%;
+    font-family: "Roboto Slab";
+}
+
+#img-link {
+    display: flex;
+    flex-direction: column-reverse;
+}

@@ -44,11 +44,11 @@ export default class LoginOwner extends Component {
         console.log(this.state.mark)
         return (
             this.state.mark ?
-            <div id="login-container">
+            <div class="login-container">
                 <button onClick={this.handleLogout}>Sign-Out</button>
             </div>
             :
-            <div id="login-container">
+            <div class="login-container">
                 <form>
                 <input type="text" placeholder="email" onChange={this.handleChangeEmail}/>
                 <input type="text" placeholder="password" onChange={this.handleChangePassword}/>
