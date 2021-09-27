@@ -21,15 +21,14 @@ export default function BottomInfo() {
             <div class="bottom-info">
             <h3> Where to find us</h3>
             <text>Hodge's Hounds</text>
-            <text>12 Waterside</text>
-            <text>Appleton Thorn</text>
-            <text>WARRINGTON, Cheshire WA4 3BS</text>
+            <text>12 English Street</text>
+            <text>LABRADORTOWN, Cheshire WO0 F00</text>
             </div>
             
             <div class="bottom-info">
             <h3>Booking:</h3>
             <text>07000000000</text>
-            <text>mark@owner.com</text>
+            <text>hodgeshounds@owner.com</text>
             </div>
 
             <div class="bottom-info" id="img-link">

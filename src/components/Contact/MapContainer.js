@@ -7,14 +7,12 @@ import { googleMapsKey } from "../../Util-Functions/config"
 const mapStyles = {
   width: '100%',
   height: '100%',
-  border: "solid red 2px",
   margin:"0 0 0 0"
 };
 
 const containerStyle = {
-  height: "250px",
-  width: "250px",
-  border: "solid red 2px",
+  height: "300px",
+  width: "300px",
   position: "relative",
   margin: "10% 10% 10% 10%"
 }
@@ -26,8 +24,8 @@ class MapContainer extends Component {
         google={this.props.google}
         initialCenter={
           {
-            lat: 53.3695745473653,
-            lng: -2.5761292316348854
+            lat: 53.30172893563856,
+            lng: -60.32535760248681
           }
         }
         zoom={14}

@@ -57,7 +57,7 @@ a {
 }
 
 a:hover {
-    font-size: larger;
+    text-decoration: underline;
 }
 
 #bottom-container {
@@ -83,7 +83,7 @@ a:hover {
 }
 
 .bottom-info {
-    margin: 2% 3% 2% 1%;
+    margin: 2% 2% 2% 1%;
     display: flex;
     flex-direction: column;
     padding: 0 0 0 0;
@@ -104,4 +104,10 @@ a:hover {
 #img-link {
     display: flex;
     flex-direction: column-reverse;
+}
+
+button {
+    color: white;
+    background-color: #333333;
+    border-radius: 10px;
 }

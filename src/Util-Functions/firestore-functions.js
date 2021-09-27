@@ -7,6 +7,10 @@ export async function signIn(email, password) {
     try {
       await auth.signInWithEmailAndPassword(email, password);
     } catch (err) {
-      if (err) console.log(err);
+      if (err)
+      {
+        console.log(err);
+        return err.message;
+      } 
     }
 }

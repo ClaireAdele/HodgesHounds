@@ -7,7 +7,7 @@ export default class LoginOwner extends Component {
     state = {
         email: "",
         password: "",
-        mark : false,
+        errorStatement : "",
     }
 
     componentDidMount() {
@@ -30,10 +30,12 @@ export default class LoginOwner extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        signIn(this.state.email, this.state.password).then(() => (this.setState({mark : true})))
-        setPersistence.then(() => {return auth.signInWithEmailAndPassword(this.state.email, this.state.password)});
+        setPersistence.then(() => {return signIn(this.state.email, this.state.password)})
+        .then((err) => { 
+          if(err) {
+          this.setState({errorStatement : err});
+        }});
     }
-    
 
     handleLogout = (event) => {
         event.preventDefault();
@@ -41,18 +43,28 @@ export default class LoginOwner extends Component {
     }
 
     render() {
-        console.log(this.state.mark)
+        console.log(this.state.errorStatement)
         return (
-            this.state.mark ?
+            auth.currentUser ?
             <div class="login-container">
-                <button onClick={this.handleLogout}>Sign-Out</button>
+                <button id="SignOutButton" onClick={this.handleLogout}>Sign-Out</button>
+            </div>
+            :
+            this.state.errorStatement ?
+            <div class="login-container">
+                <form id="inputFormLogin">
+                <input id="inputUserLogin" type="text" placeholder="email" onChange={this.handleChangeEmail}/>
+                <input id="inputUserLogin" type="password" placeholder="password" onChange={this.handleChangePassword}/>
+                <button id="SignInButton" onClick={this.handleSubmit}>Sign-In</button>
+                <p id="errorStatement" >{this.state.errorStatement}</p>
+                </form>
             </div>
             :
             <div class="login-container">
-                <form>
-                <input type="text" placeholder="email" onChange={this.handleChangeEmail}/>
-                <input type="text" placeholder="password" onChange={this.handleChangePassword}/>
-                <button onClick={this.handleSubmit}>Sign-In</button>
+                <form id="inputFormLogin">
+                <input id="inputUserLogin" type="text" placeholder="email" onChange={this.handleChangeEmail}/>
+                <input id="inputUserLogin" type="password" placeholder="password" onChange={this.handleChangePassword}/>
+                <button id="SignInButton" onClick={this.handleSubmit}>Sign-In</button>
                 </form>
             </div>
         )

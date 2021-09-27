@@ -9,7 +9,6 @@ export default class PricingServices extends Component {
         service : "",
         price: "",
         displayedServices : [],
-        mark : false
     }
 
     componentDidMount() {
@@ -19,9 +18,6 @@ export default class PricingServices extends Component {
             return data;
         }).then((data) => {
             this.setState({displayedServices : data.services});
-            if(auth.currentUser) {
-                this.setState({mark : true})
-            }
         })
     }
 
@@ -56,7 +52,7 @@ export default class PricingServices extends Component {
 
     render() {
         return (
-            this.state.mark ?
+            auth.currentUser ?
             <div id="pricingServices-container">
             <div class="services-list">
             <h1>Our Services</h1>
@@ -64,9 +60,9 @@ export default class PricingServices extends Component {
                 return <table class="prices-table"><tr><td>{service.service}</td><td>£{service.price}</td><td><DeleteService service={service} arrayServices={this.state.displayedServices} deleteService={this.deleteService}></DeleteService></td></tr></table>
             })}
             <form onSubmit={this.handleSubmit}>
-            <input type="text" placeholder="type in new service" onChange={this.handleInputChangeService} name="service"></input>
-            <input type="integer" placeholder="set price" onChange={this.handleInputChangePrice} name="price"></input>
-            <button>Add Service</button>
+            <input class="inputService" type="text" placeholder="type in new service" onChange={this.handleInputChangeService} name="service"></input>
+            <input class="inputService" type="integer" placeholder="set price" onChange={this.handleInputChangePrice} name="price"></input>
+            <button id="addServiceButton" >Add Service</button>
             </form>
             </div>
             <div id="textServices">

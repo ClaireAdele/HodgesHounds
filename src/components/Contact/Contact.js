@@ -13,7 +13,7 @@ export default function Contact() {
             <div>
             <p>We accept booking over the phone or by e-mail.</p>
             <p>07123456789</p>
-            <p>mark@owner.com</p>
+            <p>hodgeshounds@owner.com</p>
             </div>
         </div>
         </div>

@@ -1,17 +1,18 @@
 #aboutImg {
-    max-width : 25%;
-    max-height: auto;
+    max-width: 40%;
+    height: auto;
+    align-self: start;
     margin: 5% 10% 0% 10%;
 }
 
 #homepage-container {
     display: flex;
     flex-direction: row;
-    margin-bottom: 40%;
-    border: 2px red solid;
+    margin-bottom: 30%;
 }
 
 #about {
-    margin: 10% 10% 10% 10%;
+    margin: 5% 5% 5% 0%;
     text-align: justify;
+    align-self: start;
 }
